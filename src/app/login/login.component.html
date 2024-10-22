@@ -1,0 +1,15 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label>Username</label>
+    <input formControlName="username" type="text">
+    <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched"></div>
+    <label>Email</label>
+    <input formControlName="email" type="email">
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"></div>
+    <label>Password</label>
+    <input formControlName="password" type="password">
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"></div>
+    <label>Remember Me</label>
+    <input formControlName="rememberMe" type="checkbox">
+
+    <button type="submit" [disabled]="loginForm.invalid">login</button>
+</form>
